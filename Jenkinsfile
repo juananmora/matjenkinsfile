@@ -43,14 +43,14 @@ pipeline {
                         abortTriggeredJob: true,
                         enhancedLogging: true,
                         job: 'MAT-PROVES-API/master/', // Nombre del job en el Jenkins remoto
-                        parameters: [
-                            string(name: 'REPO_URL', value: params.REPO_URL),
-                            string(name: 'ENV_TO_TEST', value: params.ENV_TO_TEST),
-                            string(name: 'BRANCH', value: params.BRANCH),
-                            string(name: 'APP_NAME', value: params.APP_NAME),
-                            string(name: 'JIRA_PROJECT_KEY', value: params.JIRA_PROJECT_KEY),
-                            string(name: 'JIRA_ISSUE_KEY', value: params.JIRA_ISSUE_KEY)
-                        ],
+                        parameters: MapParameters(parameters: [
+                            MapParameter(name: 'REPO_URL', value: params.REPO_URL),
+                            MapParameter(name: 'ENV_TO_TEST', value: params.ENV_TO_TEST),
+                            MapParameter(name: 'BRANCH', value: params.BRANCH),
+                            MapParameter(name: 'APP_NAME', value: params.APP_NAME),
+                            MapParameter(name: 'JIRA_PROJECT_KEY', value: params.JIRA_PROJECT_KEY),
+                            MapParameter(name: 'JIRA_ISSUE_KEY', value: params.JIRA_ISSUE_KEY)
+                        ]),
                         preventRemoteBuildQueue: true,
                         remoteJenkinsName: 'Jenkins', // Nombre de la instalación remota de Jenkins en el plugin
                         useCrumbCache: true,
