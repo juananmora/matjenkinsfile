@@ -88,7 +88,7 @@ pipeline {
                             string(name: 'JIRA_ISSUE_KEY', value: params.JIRA_ISSUE_KEY)
                         ],
                         preventRemoteBuildQueue: true,
-                        remoteJenkinsName: 'Jenkins-Performance', // Name of the remote Jenkins installation in the plugin
+                        remoteJenkinsName: 'Jenkins', // Name of the remote Jenkins installation in the plugin
                         useCrumbCache: true,
                         useJobInfoCache: true
                     )
