@@ -2,7 +2,7 @@ properties([
     parameters([
         string(
             name: 'REPO_URL',
-            defaultValue: 'https://github.com/ctti-dev/3632.00-mat-api-tests',
+            defaultValue: 'https://github.com/ctti-dev/3632.00-mat-api-tests.git',
             description: 'URL del repositorio de pruebas de API'
         ),
         choice(
@@ -52,7 +52,7 @@ pipeline {
                             string(name: 'JIRA_ISSUE_KEY', value: params.JIRA_ISSUE_KEY)
                         ],
                         preventRemoteBuildQueue: true,
-                        remoteJenkinsName: 'Jenkins-API', // Nombre de la instalación remota de Jenkins en el plugin
+                        remoteJenkinsName: 'Jenkins', // Nombre de la instalación remota de Jenkins en el plugin
                         useCrumbCache: true,
                         useJobInfoCache: true
                     )
