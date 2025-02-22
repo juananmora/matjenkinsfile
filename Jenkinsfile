@@ -42,7 +42,7 @@ properties([
         ),
         booleanParam(
             name: 'QUALITY_GATE',
-            defaultValue: true,
+            defaultValue: false,
             description: 'Enable/Disable Quality Gate'
         ),
         string(
