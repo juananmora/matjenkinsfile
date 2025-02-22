@@ -72,23 +72,23 @@ pipeline {
                     triggerRemoteJob(
                         abortTriggeredJob: true,
                         enhancedLogging: true,
-                        job: 'MAT-PROVES-RENDIMENT/master/', // Name of the job in the remote Jenkins
-                        parameters: [
-                            string(name: 'REPO_URL', value: params.REPO_URL),
-                            string(name: 'ENV_TO_TEST', value: params.ENV_TO_TEST),
-                            string(name: 'BRANCH', value: params.BRANCH),
-                            string(name: 'PROTOCOL', value: params.PROTOCOL),
-                            string(name: 'URL_APP', value: params.URL_APP),
-                            string(name: 'TEST_DURATION', value: params.TEST_DURATION),
-                            string(name: 'RAMP_UP_TIME', value: params.RAMP_UP_TIME),
-                            string(name: 'THREAD_COUNT', value: params.THREAD_COUNT),
-                            booleanParam(name: 'QUALITY_GATE', value: params.QUALITY_GATE),
-                            string(name: 'UMBRAL', value: params.UMBRAL),
-                            string(name: 'JIRA_PROJECT_KEY', value: params.JIRA_PROJECT_KEY),
-                            string(name: 'JIRA_ISSUE_KEY', value: params.JIRA_ISSUE_KEY)
-                        ],
+                        job: 'MAT-PROVES-RENDIMENT/master/', // Nombre del job en el Jenkins remoto
+                        parameters: MapParameters(parameters: [
+                            MapParameter(name: 'REPO_URL', value: params.REPO_URL),
+                            MapParameter(name: 'ENV_TO_TEST', value: params.ENV_TO_TEST),
+                            MapParameter(name: 'BRANCH', value: params.BRANCH),
+                            MapParameter(name: 'PROTOCOL', value: params.PROTOCOL),
+                            MapParameter(name: 'URL_APP', value: params.URL_APP),
+                            MapParameter(name: 'TEST_DURATION', value: params.TEST_DURATION),
+                            MapParameter(name: 'RAMP_UP_TIME', value: params.RAMP_UP_TIME),
+                            MapParameter(name: 'THREAD_COUNT', value: params.THREAD_COUNT),
+                            MapParameter(name: 'QUALITY_GATE', value: params.QUALITY_GATE.toString()), // Convertir booleano a string
+                            MapParameter(name: 'UMBRAL', value: params.UMBRAL),
+                            MapParameter(name: 'JIRA_PROJECT_KEY', value: params.JIRA_PROJECT_KEY),
+                            MapParameter(name: 'JIRA_ISSUE_KEY', value: params.JIRA_ISSUE_KEY)
+                        ]),
                         preventRemoteBuildQueue: true,
-                        remoteJenkinsName: 'Jenkins', // Name of the remote Jenkins installation in the plugin
+                        remoteJenkinsName: 'Jenkins', // Nombre de la instalación remota en el plugin
                         useCrumbCache: true,
                         useJobInfoCache: true
                     )
